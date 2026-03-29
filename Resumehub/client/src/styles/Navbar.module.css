@@ -1,0 +1,198 @@
+/* ── Navbar — "The Executive Lens" skin ──────────────────── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ── Logo ───────────────────────────────────────────────── */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logoIcon {
+  font-size: 1.2rem;
+  color: #6ffbbe;
+}
+
+.logoText {
+  font-family: 'Manrope', 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #f8fafc;
+  letter-spacing: -0.01em;
+}
+
+/* ── Desktop Links ──────────────────────────────────────── */
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.navLink {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(248, 250, 252, 0.6);
+  text-decoration: none;
+  transition: color 150ms ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.navLink:hover { color: #f8fafc; }
+
+.navLinkActive {
+  color: #f8fafc;
+  font-weight: 600;
+}
+
+.navCta {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: #10B981;
+  color: #0F172A;
+  border-radius: 6px;
+  padding: 8px 18px;
+  text-decoration: none;
+  transition: background 150ms ease, transform 150ms ease;
+  white-space: nowrap;
+}
+
+.navCta:hover {
+  background: #6ffbbe;
+  transform: translateY(-1px);
+}
+
+/* ── Hamburger (hidden on desktop) ─────────────────────── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  background: rgba(248, 250, 252, 0.8);
+  border-radius: 2px;
+  transition: transform 280ms ease, opacity 280ms ease;
+  transform-origin: center;
+}
+
+/* Animate to X when open */
+.hamburgerOpen span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburgerOpen span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburgerOpen span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Mobile Drawer ──────────────────────────────────────── */
+.drawer {
+  position: fixed;
+  top: 68px;
+  left: 0;
+  right: 0;
+  z-index: 199;
+  background: rgba(15, 23, 42, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  animation: drawerSlide 220ms ease forwards;
+}
+
+@keyframes drawerSlide {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.drawerInner {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 16px 20px;
+}
+
+.drawerLink {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(248, 250, 252, 0.75);
+  text-decoration: none;
+  padding: 14px 12px;
+  border-radius: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: background 150ms, color 150ms;
+}
+
+.drawerLink:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #f8fafc;
+}
+
+.drawerCta {
+  margin-top: 8px;
+  background: #10B981 !important;
+  color: #0F172A !important;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.drawerCta:hover {
+  background: #6ffbbe !important;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .navLinks {
+    display: none; /* hide desktop links */
+  }
+
+  .hamburger {
+    display: flex; /* show hamburger */
+  }
+}

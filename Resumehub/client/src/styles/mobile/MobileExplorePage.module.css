@@ -1,0 +1,387 @@
+/* ── Mobile Explore Page — Light Theme (matches desktop) ─── */
+
+.page {
+  min-height: 100dvh;
+  background: #f7f9fb;
+  font-family: 'Inter', 'Outfit', sans-serif;
+  color: #191c1e;
+  padding-top: 68px;
+  overflow-x: hidden;
+}
+
+/* ── Page Header ─── */
+.pageHeader {
+  padding: 20px 16px 16px;
+  border-bottom: 1px solid rgba(198, 198, 205, 0.5);
+  background: #fff;
+}
+
+.eyebrow {
+  display: block;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #10b981;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.pageTitle {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 850;
+  letter-spacing: -0.03em;
+  color: #0F172A;
+  margin: 0 0 5px;
+}
+
+.pageSubtitle {
+  font-size: 0.82rem;
+  color: #76777d;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── User Status Card ─── */
+.statusCard {
+  margin: 12px 16px;
+  background: #fff;
+  border: 1px solid rgba(198, 198, 205, 0.5);
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 2px 8px rgba(25, 28, 30, 0.04);
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #38bdf8 0%, #10b981 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
+  flex-shrink: 0;
+  border: 2px solid #fff;
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.15);
+}
+
+.statusInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.statusName {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #0F172A;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.statusBadge {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 20px;
+  padding: 2px 8px;
+  margin-top: 3px;
+}
+
+.statusVerified {
+  background: rgba(16, 185, 129, 0.08);
+  color: #10b981;
+}
+
+.statusUnverified {
+  background: rgba(245, 158, 11, 0.08);
+  color: #f59e0b;
+}
+
+/* ── Category List ─── */
+.categoryList {
+  padding: 8px 0 24px;
+}
+
+/* ── Category Accordion ─── */
+.categoryAccordion {
+  border-bottom: 1px solid rgba(198, 198, 205, 0.4);
+  background: #fff;
+}
+
+.categoryToggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: none;
+  border: none;
+  color: #191c1e;
+  cursor: pointer;
+  text-align: left;
+  transition: background 150ms;
+}
+
+.categoryToggle:hover {
+  background: rgba(15, 23, 42, 0.02);
+}
+
+.categoryInitial {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Manrope', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
+}
+
+.categoryInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.categoryName {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0F172A;
+  display: block;
+  letter-spacing: -0.01em;
+}
+
+.categoryCount {
+  font-size: 0.7rem;
+  color: #76777d;
+  font-weight: 500;
+}
+
+.chevron {
+  color: #c6c6cd;
+  transition: transform 250ms ease;
+  flex-shrink: 0;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.categoryHeaderLink {
+  font-size: 0.7rem;
+  color: #10b981;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(16, 185, 129, 0.08);
+  white-space: nowrap;
+  transition: background 150ms;
+}
+
+.categoryHeaderLink:hover {
+  background: rgba(16, 185, 129, 0.15);
+}
+
+/* ── Job Cards inside category ─── */
+.categoryBody {
+  overflow: hidden;
+  background: #f7f9fb;
+}
+
+.jobsInner {
+  padding: 8px 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.jobCard {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(198, 198, 205, 0.35);
+  transition: padding-left 200ms, border-bottom-color 200ms;
+}
+
+.jobCard:last-child {
+  border-bottom: none;
+}
+
+.jobCard:hover {
+  padding-left: 8px;
+  border-bottom-color: #10b981;
+}
+
+.jobTitle {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.jobMetaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.jobCompany,
+.jobLocation {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: #45464d;
+  font-weight: 600;
+}
+
+.jobSalary {
+  font-size: 0.72rem;
+  color: #10b981;
+  font-weight: 700;
+  background: rgba(16, 185, 129, 0.08);
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+
+.jobDescription {
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: #76777d;
+  margin: 0 0 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.jobActions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btnApply {
+  padding: 8px 18px;
+  background: #0F172A;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 150ms, transform 150ms;
+}
+
+.btnApply:hover {
+  background: #10b981;
+  transform: translateY(-1px);
+}
+
+.btnLocked {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #f2f4f6;
+  border: none;
+  border-radius: 8px;
+  color: #76777d;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: not-allowed;
+}
+
+.emptyCategory {
+  font-size: 0.8rem;
+  color: #76777d;
+  padding: 12px 0 4px;
+  text-align: center;
+}
+
+/* ── Loading / Error ─── */
+.loadingContainer {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: #76777d;
+  font-size: 0.875rem;
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid #e6e8ea;
+  border-top-color: #10b981;
+}
+
+.errorState {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 24px;
+  text-align: center;
+}
+
+.errorTitle {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0;
+}
+
+.errorMsg {
+  font-size: 0.85rem;
+  color: #76777d;
+  margin: 0;
+}
+
+.retryBtn {
+  padding: 11px 24px;
+  background: #0F172A;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 150ms;
+}
+
+.retryBtn:hover {
+  background: #10b981;
+}
+
+/* ── Unverified note ─── */
+.unverifiedNote {
+  display: block;
+  font-size: 0.75rem;
+  color: #f59e0b;
+  font-weight: 600;
+  margin-top: 4px;
+}

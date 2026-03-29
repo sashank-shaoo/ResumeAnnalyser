@@ -1,0 +1,74 @@
+// This is your Prisma schema file
+// Learn more: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ── User ────────────────────────────────────────────────────────
+model User {
+  id                String           @id @default(uuid())
+  name              String
+  email             String?          @unique
+  preferredLocation String?
+  preferredIndustry String?
+  experienceLevel   String?
+  bio               String?
+  skills            String[]         @default([])
+  linkedin          String?
+  github            String?
+  portfolio         String?
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+
+  // Auth fields
+  password             String?
+  googleId             String?
+  authProvider         String           @default("LOCAL") // e.g., "LOCAL" or "GOOGLE"
+  isVerified           Boolean          @default(false)
+  otp                  String?
+  otpExpires           DateTime?
+  resetPasswordToken   String?
+  resetPasswordExpires DateTime?
+
+  analyses          ResumeAnalysis[]
+  savedJobs         SavedJob[]
+
+  @@map("users")
+}
+
+// ── ResumeAnalysis ───────────────────────────────────────────────
+model ResumeAnalysis {
+  id             String   @id @default(uuid())
+  userId         String
+  fileName       String?
+  inferredProfile Json     // stores the full LLM output (skills, titles, etc.)
+  createdAt      DateTime @default(now())
+
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("resume_analyses")
+}
+
+// ── SavedJob ─────────────────────────────────────────────────────
+model SavedJob {
+  id       String   @id @default(uuid())
+  userId   String
+  jobId    String                     // external Adzuna job ID
+  title    String
+  company  String
+  location String?
+  salary   String?
+  applyUrl String
+  savedAt  DateTime @default(now())
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, jobId])           // prevent duplicate saves
+  @@map("saved_jobs")
+}

@@ -1,0 +1,137 @@
+/* ──────────────────────────────────────────────────────────
+   ProcessingPage.module.css — "The Executive Lens"
+   ────────────────────────────────────────────────────────── */
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
+  color: var(--color-text-inv);
+  font-family: var(--font-body);
+  position: relative;
+  overflow: hidden;
+}
+
+.wrapper {
+  text-align: center;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+/* ── "Deep Scanner" Orbital Animation ────────────────────── */
+
+.orbitalContainer {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ring1, .ring2, .ring3 {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(16, 185, 129, 0.1);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.05);
+}
+
+.ring1 {
+  width: 240px;
+  height: 240px;
+  border-top: 2px solid var(--color-emerald);
+  animation: rotate 3s linear infinite;
+}
+
+.ring2 {
+  width: 180px;
+  height: 180px;
+  border-right: 2px solid rgba(56, 189, 248, 0.6);
+  animation: rotate 2s linear reverse infinite;
+}
+
+.ring3 {
+  width: 120px;
+  height: 120px;
+  border-bottom: 2px solid var(--color-emerald-light);
+  animation: rotate 4s linear infinite;
+}
+
+.core {
+  font-size: 2.5rem;
+  color: var(--color-emerald);
+  text-shadow: 0 0 20px var(--color-emerald);
+  animation: pulse 2s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 1; filter: brightness(1.2); }
+}
+
+/* ── Status Messaging ────────────────────────────────────── */
+
+.message {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+  max-width: 400px;
+  height: 2rem;
+}
+
+.hint {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-inv-muted);
+  opacity: 0.7;
+}
+
+/* ── Error State ─────────────────────────────────────────── */
+
+.error {
+  margin-top: 2rem;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  padding: 1.5rem;
+  border-radius: 16px;
+  max-width: 320px;
+}
+
+.error p {
+  color: #f87171;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.error button {
+  background: #fff;
+  color: var(--color-navy);
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.error button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}

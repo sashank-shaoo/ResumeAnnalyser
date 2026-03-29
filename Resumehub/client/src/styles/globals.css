@@ -1,0 +1,261 @@
+/* ============================================================
+   ResumeHub — Global CSS Design System
+   "The Executive Lens" — Premium SaaS · Light + Navy palette
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+/* ── Design Tokens ─────────────────────────────────────────── */
+:root {
+  /* Core Palette */
+  --color-bg-base:          #f7f9fb;
+  --color-bg-surface:       #ffffff;
+  --color-bg-surface-low:   #f2f4f6;
+  --color-bg-surface-high:  #e6e8ea;
+  --color-bg-glass:         rgba(255, 255, 255, 0.07);
+
+  /* Navy (primary) */
+  --color-navy:             #0F172A;
+  --color-navy-deep:        #131b2e;
+  --color-navy-mid:         #1e293b;
+
+  /* Emerald (accent) */
+  --color-emerald:          #10B981;
+  --color-emerald-light:    #6ffbbe;
+  --color-emerald-dim:      #4edea3;
+  --color-sky:              #38BDF8;
+  --color-sky-light:        #bae6fd;
+
+  /* Text */
+  --color-text-primary:     #191c1e;
+  --color-text-secondary:   #45464d;
+  --color-text-muted:       #76777d;
+  --color-text-inv:         #f8fafc;
+  --color-text-inv-muted:   rgba(248, 250, 252, 0.6);
+
+  /* Borders */
+  --color-border:           #c6c6cd;
+  --color-border-ghost:     rgba(198, 198, 205, 0.15);
+  --color-border-dark:      rgba(255, 255, 255, 0.07);
+
+  /* Status */
+  --color-success:          #10B981;
+  --color-warning:          #f59e0b;
+  --color-error:            #ef4444;
+
+  /* Typography */
+  --font-heading: 'Manrope', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  /* Spacing / Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* Elevation (ambient, not colored) */
+  --shadow-sm: 0 2px 8px rgba(25, 28, 30, 0.05);
+  --shadow-md: 0 8px 24px rgba(25, 28, 30, 0.07);
+  --shadow-lg: 0 24px 48px rgba(25, 28, 30, 0.09);
+}
+
+/* ── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-primary);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { cursor: pointer; border: none; background: none; font-family: var(--font-body); }
+input, select, textarea { font-family: var(--font-body); }
+
+/* ── Layout Utilities ──────────────────────────────────────── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  z-index: 1;
+}
+
+/* ── Card ──────────────────────────────────────────────────── */
+.glass-card {
+  background: var(--color-bg-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ── Primary Button ────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-deep) 100%);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  padding: 13px 28px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.btn-primary:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Secondary Button ──────────────────────────────────────── */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--color-text-primary);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.btn-secondary:hover {
+  background: var(--color-bg-surface-low);
+  border-color: var(--color-text-secondary);
+}
+
+/* ── Skill Tag ─────────────────────────────────────────────── */
+.skill-tag {
+  display: inline-block;
+  background: var(--color-bg-surface-low);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  border-radius: 50px;
+  padding: 4px 12px;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+/* ── Input ─────────────────────────────────────────────────── */
+.input-field {
+  width: 100%;
+  background: var(--color-bg-surface-high);
+  border: none;
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  padding: 13px 16px;
+  font-size: 0.95rem;
+  transition: box-shadow 200ms ease;
+  outline: none;
+}
+
+.input-field:focus {
+  box-shadow: 0 0 0 2px rgba(78, 222, 163, 0.3);
+}
+
+.input-field::placeholder { color: var(--color-text-muted); }
+
+/* ── Select ────────────────────────────────────────────────── */
+.select-field {
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2345464d' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+}
+
+select.input-field option { background: var(--color-bg-surface); }
+
+/* ── Label ─────────────────────────────────────────────────── */
+.input-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+/* ── Gradient Text ─────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(90deg, #6ffbbe, #4edea3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-bg-base); }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-text-muted); }
+
+/* ── bg-orb (keep for other pages, subdued) ────────────────── */
+.bg-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-orb-1 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.06) 0%, transparent 70%);
+  top: -150px; left: -150px;
+}
+
+.bg-orb-2 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
+  bottom: -100px; right: -100px;
+}
+
+.bg-orb-3 {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.04) 0%, transparent 70%);
+  top: 50%; right: 20%;
+}

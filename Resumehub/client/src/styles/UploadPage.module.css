@@ -1,0 +1,280 @@
+/* ──────────────────────────────────────────────────────────
+   UploadPage.module.css — "The Executive Lens"
+   ────────────────────────────────────────────────────────── */
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
+  color: var(--color-text-inv);
+  font-family: var(--font-body);
+  position: relative;
+  overflow-y: auto;
+}
+
+/* Ambient Ambient Glow */
+.page::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: -5%;
+  width: 50%;
+  height: 50%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin: auto;
+}
+
+.header {
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-emerald);
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 850;
+  color: #fff;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.subtitle {
+  color: var(--color-text-inv-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border-radius: 28px;
+  padding: 3rem;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4), 
+              inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+/* High-Fidelity Reactive Aura */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 28px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), transparent 40%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.dropzone {
+  border: 2px dashed rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dropzone:hover {
+  border-color: var(--color-emerald);
+  background: rgba(16, 185, 129, 0.03);
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.1);
+}
+
+.dragActive {
+  border-color: var(--color-emerald) !important;
+  background: rgba(16, 185, 129, 0.08) !important;
+  transform: scale(1.02);
+  box-shadow: 0 0 40px rgba(16, 185, 129, 0.15) !important;
+}
+
+.hasFile {
+  border-style: solid;
+  border-color: rgba(16, 185, 129, 0.3);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.uploadIcon {
+  width: 48px;
+  height: 48px;
+  color: var(--color-text-inv-muted);
+  transition: color 0.3s ease;
+}
+
+.dropzone:hover .uploadIcon {
+  color: var(--color-emerald);
+}
+
+.dropText {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.dropOr {
+  color: var(--color-text-inv-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.browseBtn {
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  transition: all 0.2s;
+}
+
+.browseBtn:hover {
+  background: #fff;
+  color: var(--color-navy);
+}
+
+.fileIconWrapper {
+  width: 64px;
+  height: 64px;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-emerald);
+  margin-bottom: 0.5rem;
+}
+
+.fileName {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: #fff;
+  text-align: center;
+  max-width: 320px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fileSize {
+  font-size: 0.9rem;
+  color: var(--color-text-inv-muted);
+  font-weight: 500;
+}
+
+.removeBtn {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #f87171;
+  background: rgba(239, 68, 68, 0.08);
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-top: 1.5rem;
+  transition: all 0.2s;
+}
+
+.removeBtn:hover {
+  background: rgba(239, 68, 68, 0.15);
+  transform: scale(1.05);
+}
+
+.error {
+  color: #f87171;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  text-align: center;
+  padding: 12px;
+  background: rgba(239, 68, 68, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(239, 68, 68, 0.1);
+}
+
+.submitBtn {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 16px;
+  background: var(--color-emerald);
+  color: var(--color-navy);
+  font-weight: 850;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(16, 185, 129, 0.3);
+}
+
+.submitBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  filter: grayscale(0.5);
+}
+
+.footerNote {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-text-inv-muted);
+  font-weight: 500;
+}
+
+/* Responsive constraints */
+@media (max-width: 600px) {
+  .card {
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+  .dropzone {
+    padding: 3rem 1.5rem;
+  }
+}

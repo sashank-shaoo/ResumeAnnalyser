@@ -1,0 +1,444 @@
+/* ──────────────────────────────────────────────────────────
+   ExplorePage.module.css — "The Executive Lens" Layout
+   ────────────────────────────────────────────────────────── */
+
+.explorePage {
+  min-height: 100vh;
+  background-color: var(--color-bg-base);
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── Fixed Left Sidebar ──────────────────────────────────── */
+.sidebar {
+  position: fixed;
+  top: 68px; /* Below standard navbar */
+  left: 0;
+  bottom: 0;
+  width: 320px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.9) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-right: 1px solid rgba(15, 23, 42, 0.04);
+  z-index: 100;
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sidebar Right Border Glow */
+.sidebar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -1px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(16, 185, 129, 0.2) 15%,
+    rgba(16, 185, 129, 0.45) 50%,
+    rgba(16, 185, 129, 0.2) 85%,
+    transparent 100%
+  );
+  box-shadow: 2px 0 20px rgba(16, 185, 129, 0.25);
+  pointer-events: none;
+  z-index: 101;
+}
+
+.sidebarHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.avatarDesktop {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 16px;
+  background: linear-gradient(135deg, var(--color-sky) 0%, var(--color-emerald) 100%);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: white;
+  box-shadow: 0 8px 16px rgba(16, 185, 129, 0.15);
+  border: 3px solid #fff;
+}
+
+.sidebarName {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 850;
+  color: var(--color-navy);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.sidebarStatus {
+  display: flex;
+  justify-content: center;
+}
+
+.statusVerified {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-emerald);
+  background: rgba(16, 185, 129, 0.08);
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+.statusUnverified {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-warning);
+  background: rgba(245, 158, 11, 0.08);
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+.sidebarContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.filterSection {
+  background: rgba(15, 23, 42, 0.02);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.filterHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-navy);
+}
+
+.filterHeader h3 {
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.filterItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filterLabel {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.filterSelect {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border-ghost);
+  background: #fff;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  outline: none;
+}
+
+.upsellBox {
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-deep) 100%);
+  padding: 20px;
+  border-radius: 16px;
+  color: white;
+}
+
+.upsellBox h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--color-emerald-light);
+}
+
+.upsellBox p {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  opacity: 0.8;
+  margin-bottom: 16px;
+}
+
+.btnUpgrade {
+  width: 100%;
+  padding: 10px;
+  background: var(--color-emerald);
+  color: var(--color-navy);
+  font-weight: 700;
+  font-size: 0.8rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btnUpgrade:hover {
+  background: #fff;
+  transform: translateY(-2px);
+}
+
+.sidebarFooter {
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border-ghost);
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+/* ── Main Content Area ──────────────────────────────────── */
+.mainContent {
+  flex: 1;
+  margin-left: 320px;
+  margin-top: 50px;
+  padding: 40px 60px 80px;
+}
+
+.header {
+  margin-bottom: 48px;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-emerald);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.pageTitle {
+  font-size: 2.2rem;
+  font-weight: 850;
+  color: var(--color-navy);
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+
+.pageSubtitle {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+.unverifiedNote {
+  color: var(--color-warning);
+  font-weight: 600;
+  display: block;
+  margin-top: 4px;
+}
+
+.categorySection {
+  margin-bottom: 60px;
+}
+
+.categoryHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--color-border-ghost);
+}
+
+.categoryBrand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.categoryInitial {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px; /* Matches executive dashboard styling */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 850;
+  font-size: 1.25rem;
+  font-family: var(--font-heading);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+.categoryTitle {
+  font-size: 1.4rem;
+  font-weight: 850;
+  color: var(--color-navy);
+  letter-spacing: -0.02em;
+}
+
+.seeMoreLink {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-emerald);
+  transition: opacity 0.2s;
+}
+
+.seeMoreLink:hover {
+  opacity: 0.7;
+}
+
+.jobsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── Job Cards (Open Style) ─────────────────────────────── */
+.jobCard {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--color-border-ghost);
+  transition: all 0.3s ease;
+}
+
+.jobCard:hover {
+  padding-left: 12px;
+  border-bottom-color: var(--color-emerald);
+}
+
+.jobCardMain {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.jobInfo {
+  flex: 1;
+}
+
+.jobTitle {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-navy);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.jobMetaRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+.jobCompany, .jobLocation {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.jobSalary {
+  color: var(--color-emerald);
+  background: rgba(16, 185, 129, 0.08);
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.jobDescription {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+.jobActions {
+  display: flex;
+  gap: 12px;
+}
+
+.btnApply {
+  padding: 8px 18px;
+  background: var(--color-navy);
+  color: white;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  transition: all 0.3s;
+}
+
+.btnApply:hover {
+  background: var(--color-emerald);
+  transform: translateY(-2px);
+}
+
+.btnLocked {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  background: var(--color-bg-surface-low);
+  color: var(--color-text-muted);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.emptyState {
+  padding: 40px;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  background: rgba(15, 23, 42, 0.02);
+  border-radius: 16px;
+}
+
+/* ── Loading & Error States ──────────────────────────────── */
+.loadingContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: var(--color-text-muted);
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--color-border-ghost);
+  border-top-color: var(--color-emerald);
+  border-radius: 50%;
+}
+
+.errorState {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.errorState h2 {
+  color: var(--color-error);
+}

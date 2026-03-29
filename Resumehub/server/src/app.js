@@ -18,7 +18,17 @@ import { errorMiddleware } from './middleware/errorMiddleware.js';
 const app = express();
 
 // ── Security ──────────────────────────────────────────────────
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+      "script-src": ["'self'", "'unsafe-inline'", "https://accounts.google.com"],
+      "connect-src": ["'self'", "https://accounts.google.com"],
+      "frame-src": ["'self'", "https://accounts.google.com"],
+      "img-src": ["'self'", "data:", "https:"],
+    },
+  },
+}));
 app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 
 // ── Rate Limiting ─────────────────────────────────────────────

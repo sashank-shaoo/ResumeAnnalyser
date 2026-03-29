@@ -256,12 +256,14 @@ export default function ProfilePage() {
       <div className={styles.profilePage}>
         <div className={styles.container}>
           <div className={styles.loadingState}>
-            <motion.div 
-              animate={{ rotate: 360 }}
-              transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-              className={styles.loader}
-            />
-            <p>Gathering Executive Insights...</p>
+            <div className={styles.loaderArea}>
+              <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
+                className={styles.loader}
+              />
+            </div>
+            <p className={styles.loadingText}>Gathering Executive Insights...</p>
           </div>
         </div>
       </div>

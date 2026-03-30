@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { AuthContext } from '../context/AuthContext';
 import styles from '../styles/Auth.module.css';
 
@@ -33,7 +34,7 @@ export default function VerifyOtpPage() {
       const res = await verifyOtp(user.email, otp);
       if (res.success) {
         setMsg('Successfully verified! Redirecting...');
-        setTimeout(() => navigate('/dashboard'), 1500); // Or wherever they should go
+        setTimeout(() => navigate('/onboarding'), 1500);
       } else {
         setError(res.error || 'Verification failed');
       }

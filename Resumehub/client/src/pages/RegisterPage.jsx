@@ -18,7 +18,7 @@ export default function RegisterPage() {
     try {
       const data = await register(name, email, password);
       if (data.success) {
-        navigate('/onboarding');
+        navigate('/verify-otp');
       } else {
         setError(data.error);
       }

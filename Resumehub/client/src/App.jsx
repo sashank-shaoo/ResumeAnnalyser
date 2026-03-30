@@ -9,6 +9,7 @@ import ProcessingPage from './pages/ProcessingPage.jsx';
 import JobResultsPage from './pages/JobResultsPage.jsx';
 import ProfilePage from './pages/ProfilePage.jsx';
 import ExplorePage from './pages/ExplorePage.jsx';
+import OnboardingPage from './pages/OnboardingPage.jsx';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
@@ -70,6 +71,7 @@ function AppContent() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/verify-otp" element={<VerifyOtpPage />} />
+          <Route path="/onboarding" element={<ProtectedRoute><OnboardingPage /></ProtectedRoute>} />
           <Route path="/upload" element={<ProtectedRoute><UploadPage /></ProtectedRoute>} />
           <Route path="/processing" element={<ProtectedRoute><ProcessingPage /></ProtectedRoute>} />
           <Route path="/results" element={<ProtectedRoute><JobResultsPage /></ProtectedRoute>} />

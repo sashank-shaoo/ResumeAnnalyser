@@ -10,6 +10,7 @@ import JobResultsPage from './pages/JobResultsPage.jsx';
 import ProfilePage from './pages/ProfilePage.jsx';
 import ExplorePage from './pages/ExplorePage.jsx';
 import OnboardingPage from './pages/OnboardingPage.jsx';
+import NotFoundPage from './pages/NotFoundPage.jsx';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
@@ -76,6 +77,7 @@ function AppContent() {
           <Route path="/processing" element={<ProtectedRoute><ProcessingPage /></ProtectedRoute>} />
           <Route path="/results" element={<ProtectedRoute><JobResultsPage /></ProtectedRoute>} />
           <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </AnimatePresence>
       {location.pathname === '/' && <Footer />}
